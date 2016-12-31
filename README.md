@@ -28,11 +28,14 @@ However you can define your own users by mounting a configuration file:
 
 ```
 docker run --name=some-saml-idp \
--e SIMPLESAMLPHP_ENTITY_ID=https://app.example.com \
--e SIMPLESAMLPHP_ASSERTION_CONSUMER_SERVICE=https://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp \
--e SIMPLESAMLPHP_SINGLE_LOGOUT_SERVICE=https://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp \
+-e SIMPLESAMLPHP_ENTITY_ID=https://app.localhost \
+-e SIMPLESAMLPHP_ASSERTION_CONSUMER_SERVICE=https://app.localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp \
+-e SIMPLESAMLPHP_SINGLE_LOGOUT_SERVICE=https://app.localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp \
 -d kritophjunge/saml-idp
 ```
 
 
 
+
+
+Cert Fingerprint: 119b9e027959cdb7c662cfd075d9e2ef384e445f
