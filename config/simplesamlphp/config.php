@@ -306,7 +306,7 @@ $config = array(
     /*
      * Option to override the default settings for the session cookie name
      */
-    'session.cookie.name' => 'SimpleSAMLSessionID',
+    'session.cookie.name' => 'SimpleSAMLSessionIDIdp',
 
     /*
      * Expiration time for the session cookie, in seconds.
@@ -363,14 +363,14 @@ $config = array(
     /*
      * Options to override the default settings for php sessions.
      */
-    'session.phpsession.cookiename' => null,
+    'session.phpsession.cookiename' => 'PHPSESSIDIDP',
     'session.phpsession.savepath' => null,
     'session.phpsession.httponly' => true,
 
     /*
      * Option to override the default settings for the auth token cookie
      */
-    'session.authtoken.cookiename' => 'SimpleSAMLAuthToken',
+    'session.authtoken.cookiename' => 'SimpleSAMLAuthTokenIdp',
 
     /*
      * Options for remember me feature for IdP sessions. Remember me feature
