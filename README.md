@@ -1,8 +1,8 @@
-# Docker SAML IdP
+# Docker Test SAML IdP
 
 Docker container with a plug and play SAML 2.0 IdP for development and testing.
 
-Built with [SimpleSAMLphp](https://simplesamlphp.org) and based on official PHP7 Apache [images](https://hub.docker.com/_/php/).
+Built with [SimpleSAMLphp](https://simplesamlphp.org). Based on official PHP7 Apache [images](https://hub.docker.com/_/php/).
 
 **Warning!**: Do not use this container in production! The container is not configured for security and contains static user credentials and SSL keys.
 
@@ -12,13 +12,13 @@ SimpleSAMLphp is logging to stdout on debug log level. Apache is logging error a
 ## Usage
 
 ```
-docker run --name=some-saml-idp \
+docker run --name=some-test-saml-idp \
 -p 8080:80 \
 -p 8443:443 \
 -e SIMPLESAMLPHP_SP_ENTITY_ID=http://app.example.com \
 -e SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp \
 -e SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp \
--d kritophjunge/saml-idp
+-d kristophjunge/test-saml-idp
 ```
 
 There are two static users configured in the IdP with the following data:
