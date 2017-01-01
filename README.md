@@ -1,6 +1,6 @@
-# Docker Test SAML IdP
+# Docker Test SAML 2.0 Identity Provider (IdP)
 
-Docker container with a plug and play SAML 2.0 IdP for development and testing.
+Docker container with a plug and play SAML 2.0 Identity Provider (IdP) for development and testing.
 
 Built with [SimpleSAMLphp](https://simplesamlphp.org). Based on official PHP7 Apache [images](https://hub.docker.com/_/php/).
 
@@ -37,7 +37,7 @@ However you can define your own users by mounting a configuration file:
 You can access the SimpleSAMLphp web interface of the IdP under `http://localhost:8080/simplesaml`. The admin password is `secret`.
 
 
-## Test the IdP
+## Test the Identity Provider (IdP)
 
 To ensure that the IdP works you can use SimpleSAMLphp as test SP.
 
