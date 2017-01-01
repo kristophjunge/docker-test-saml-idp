@@ -6,30 +6,25 @@ RUN apt-get update && \
     apt-get -y install apt-transport-https git curl --no-install-recommends && \
     rm -r /var/lib/apt/lists/*
 
+# SimpleSAMLphp
 ARG SIMPLESAMLPHP_VERSION=1.14.8
 ADD https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SIMPLESAMLPHP_VERSION/simplesamlphp-$SIMPLESAMLPHP_VERSION.tar.gz /tmp/simplesamlphp.tar.gz
-RUN tar xzf /tmp/simplesamlphp.tar.gz -C /tmp
-RUN rm -f /tmp/simplesamlphp.tar.gz
-RUN ls -al /tmp
-RUN mv /tmp/simplesamlphp-* /var/www/simplesamlphp
-
+RUN tar xzf /tmp/simplesamlphp.tar.gz -C /tmp && \
+    rm -f /tmp/simplesamlphp.tar.gz  && \
+    ls -al /tmp && \
+    mv /tmp/simplesamlphp-* /var/www/simplesamlphp
 COPY config/simplesamlphp/config.php /var/www/simplesamlphp/config
 COPY config/simplesamlphp/authsources.php /var/www/simplesamlphp/config
 COPY config/simplesamlphp/saml20-sp-remote.php /var/www/simplesamlphp/metadata
-
 COPY config/simplesamlphp/server.crt /var/www/simplesamlphp/cert/
 COPY config/simplesamlphp/server.pem /var/www/simplesamlphp/cert/
-
 RUN touch /var/www/simplesamlphp/modules/exampleauth/enable
 
+# Apache
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-
 COPY config/apache/simplesamlphp.conf /etc/apache2/sites-available
 COPY config/apache/cert.crt /etc/ssl/cert/cert.crt
 COPY config/apache/private.key /etc/ssl/private/private.key
-
-COPY config/php/php.ini /usr/local/etc/php/
-
 RUN a2enmod ssl
 RUN a2dissite 000-default.conf default-ssl.conf
 RUN a2ensite simplesamlphp.conf
