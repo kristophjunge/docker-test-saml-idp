@@ -35,7 +35,7 @@ There are two static users configured in the IdP with the following data:
 However you can define your own users by mounting a configuration file:
 
 ```
--v /users.php:/var/www/simplesamlphp/config/simplesamlphp/authsources.php
+-v /users.php:/var/www/simplesamlphp/config/authsources.php
 ```
 
 You can access the SimpleSAMLphp web interface of the IdP under `http://localhost:8080/simplesaml`. The admin password is `secret`.
