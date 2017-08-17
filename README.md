@@ -12,6 +12,8 @@ Built with [SimpleSAMLphp](https://simplesamlphp.org). Based on official PHP7 Ap
 
 SimpleSAMLphp is logging to stdout on debug log level. Apache is logging error and access log to stdout.
 
+The contained version of SimpleSAMLphp is 1.14.15.
+
 
 ## Usage
 

@@ -1,3 +1,7 @@
+## 2017-08-17 v1.14.15-1
+
+* Updated SimpleSAMLphp to version 1.14.15.
+
 ## 2017-08-14 v1.14.8-2
 
 * Switched downloads to CURL instead of Docker ADD since it now extracts downloaded archives.
