@@ -8,8 +8,8 @@ RUN apt-get update && \
 
 # SimpleSAMLphp
 ARG SIMPLESAMLPHP_VERSION=1.14.8
-ADD https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SIMPLESAMLPHP_VERSION/simplesamlphp-$SIMPLESAMLPHP_VERSION.tar.gz /tmp/simplesamlphp.tar.gz
-RUN tar xzf /tmp/simplesamlphp.tar.gz -C /tmp && \
+RUN curl -o /tmp/simplesamlphp.tar.gz https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SIMPLESAMLPHP_VERSION/simplesamlphp-$SIMPLESAMLPHP_VERSION.tar.gz && \
+    tar xzf /tmp/simplesamlphp.tar.gz -C /tmp && \
     rm -f /tmp/simplesamlphp.tar.gz  && \
     ls -al /tmp && \
     mv /tmp/simplesamlphp-* /var/www/simplesamlphp
