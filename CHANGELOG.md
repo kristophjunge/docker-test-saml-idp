@@ -1,5 +1,6 @@
-## 2017-08-14 v1.14.8-2
+## 2017-08-17 v1.14.8-2
 
+* Switched downloads to CURL instead of Docker ADD since it now extracts downloaded archives.
 * Fixed wrong path in example.
 * Added changelog.
 * Added contributor list.
