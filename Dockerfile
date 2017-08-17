@@ -3,7 +3,7 @@ MAINTAINER Kristoph Junge <kristoph.junge@gmail.com>
 
 # Utilities
 RUN apt-get update && \
-    apt-get -y install apt-transport-https git curl --no-install-recommends && \
+    apt-get -y install apt-transport-https git curl vim --no-install-recommends && \
     rm -r /var/lib/apt/lists/*
 
 # SimpleSAMLphp
