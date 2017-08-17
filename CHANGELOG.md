@@ -1,5 +1,6 @@
 ## 2017-08-17 v1.14.15-1
 
+* Introduced version branches and added note to README.md.
 * Added Vim to the container for debugging.
 * Updated SimpleSAMLphp to version 1.14.15.
 

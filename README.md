@@ -14,6 +14,10 @@ SimpleSAMLphp is logging to stdout on debug log level. Apache is logging error a
 
 The contained version of SimpleSAMLphp is 1.14.15.
 
+## Supported Tags
+
+- `1.14.15` [(Dockerfile)](https://github.com/kristophjunge/docker-test-saml-idp/blob/1.14.15/Dockerfile)
+
 
 ## Usage
 
