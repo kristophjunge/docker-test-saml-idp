@@ -110,6 +110,21 @@ Example:
 curl -d "name=foo" -d 'data={"AssertionConsumerService": "http://.../", "SingleLogoutService": "http://.../"}' -sv http://$samlContainer/simplesaml/testapi/add-sp-remote.php
 ```
 
+### Users
+
+The `simplesaml/testapi/add-user.php` script can be used to add a new user to the `example-userpass` authentication source.
+
+The script requires two parameters:
+
+ * `user` - the username and password formatted as `user:pass`
+ * `metadata` - the metadata for the user encoded as JSON
+
+Example:
+
+```
+curl -d "user=foo:bar" -d 'metadata={"email": "foo@example.com"}' -sv http://$samlContainer/simplesaml/testapi/add-user.php
+```
+
 ## License
 
 This project is licensed under the MIT license by Kristoph Junge.

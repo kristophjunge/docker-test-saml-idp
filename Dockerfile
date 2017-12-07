@@ -30,7 +30,7 @@ RUN a2dissite 000-default.conf default-ssl.conf
 RUN a2ensite simplesamlphp.conf
 
 # Make config writeable by apache so that our testapi can update config
-RUN chown -R www-data.www-data /var/www/simplesamlphp/metadata
+RUN chown -R www-data.www-data /var/www/simplesamlphp/metadata /var/www/simplesamlphp/config
 
 # Copy in scripts that provide an API to adjust SP remotes dynamically in tests.
 COPY config/testapi/* /var/www/simplesamlphp/www/testapi/
