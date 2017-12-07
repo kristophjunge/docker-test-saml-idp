@@ -87,6 +87,29 @@ Start the development IdP with the command above (usage) and initiate the login 
 Click under `Authentication` > `Test configured authentication sources` > `test-sp` and login with one of the test credentials.
 
 
+## Dynamic config during tests
+
+In some test environments you may not know what path or even domain the SP is going to be on until after the IdP container has already started, in that case it can be useful to update config dynamically in the already running container.
+
+No verification is done on any of these calls, if you break config with a bad call, you're on your own!
+
+### Service Providers
+
+It's possible add SPs dynamically by POSTing to the `simplesaml/testapi/add-sp-remote.php` script.
+
+For documentation on how SPs can be configured, see https://simplesamlphp.org/docs/stable/simplesamlphp-reference-sp-remote .
+
+The script requires two parameters:
+
+ * `name` - the name of the remote, ideally it should be unique (e.g use [uniqid()](http://php.net/uniqid) as part of the name) as duplicate names will simply overwrite each other
+ * `data` - configuration for this SP encoded as JSON
+
+Example:
+
+```
+curl -d "name=foo" -d 'data={"AssertionConsumerService": "http://.../", "SingleLogoutService": "http://.../"}' -sv http://$samlContainer/simplesaml/testapi/add-sp-remote.php
+```
+
 ## License
 
 This project is licensed under the MIT license by Kristoph Junge.
