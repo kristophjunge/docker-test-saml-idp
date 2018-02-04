@@ -7,6 +7,7 @@
 * Updated docker compose to version 3.
 * Refactored Dockerfile.
 * Switched to branches without bugfix version.
+* Fixed contribution links in README.md.
 
 ## 2017-08-17 v1.14.15-1
 

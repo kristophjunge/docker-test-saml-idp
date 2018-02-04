@@ -96,9 +96,9 @@ Click under `Authentication` > `Test configured authentication sources` > `test-
 
 ## Contributing
 
-See [CONTRIBUTION.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/CONTRIBUTION.md) for information on how to contribute to the project.
+See [CONTRIBUTING.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/docs/CONTRIBUTING.md) for information on how to contribute to the project.
 
-See [CONTRIBUTORS.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/CONTRIBUTORS.md) for the list of contributors.
+See [CONTRIBUTORS.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/docs/CONTRIBUTORS.md) for the list of contributors.
 
 
 ## License
