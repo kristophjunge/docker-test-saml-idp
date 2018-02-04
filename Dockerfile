@@ -22,6 +22,7 @@ RUN touch /var/www/simplesamlphp/modules/exampleauth/enable
 
 # Apache
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+COPY config/apache/ports.conf /etc/apache2
 COPY config/apache/simplesamlphp.conf /etc/apache2/sites-available
 COPY config/apache/cert.crt /etc/ssl/cert/cert.crt
 COPY config/apache/private.key /etc/ssl/private/private.key
@@ -33,4 +34,4 @@ RUN a2ensite simplesamlphp.conf
 WORKDIR /var/www/simplesamlphp
 
 # General setup
-EXPOSE 80 443
+EXPOSE 8080 8443

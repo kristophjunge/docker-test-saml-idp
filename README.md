@@ -23,8 +23,8 @@ The contained version of SimpleSAMLphp is 1.14.15.
 
 ```
 docker run --name=some-test-saml-idp \
--p 8080:80 \
--p 8443:443 \
+-p 8080:8080 \
+-p 8443:8443 \
 -e SIMPLESAMLPHP_SP_ENTITY_ID=http://app.example.com \
 -e SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp \
 -e SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp \
