@@ -29,7 +29,7 @@ See [CHANGELOG.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/ma
 ## Usage
 
 ```
-docker run --name=some-test-saml-idp \
+docker run --name=testsamlidp_idp \
 -p 8080:8080 \
 -p 8443:8443 \
 -e SIMPLESAMLPHP_SP_ENTITY_ID=http://app.example.com \

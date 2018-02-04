@@ -1,6 +1,6 @@
-version: '2'
+version: '3'
 services:
-  samlidp:
+  testsamlidp_idp:
     build: .
     environment:
       SIMPLESAMLPHP_SP_ENTITY_ID: http://app.example.com
