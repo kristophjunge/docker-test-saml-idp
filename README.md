@@ -14,9 +14,15 @@ SimpleSAMLphp is logging to stdout on debug log level. Apache is logging error a
 
 The contained version of SimpleSAMLphp is 1.14.15.
 
+
 ## Supported Tags
 
 - `1.14.15` [(Dockerfile)](https://github.com/kristophjunge/docker-test-saml-idp/blob/1.14.15/Dockerfile)
+
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/docs/CHANGELOG.md) for information about the latest changes.
 
 
 ## Usage
@@ -56,7 +62,7 @@ Download a fresh installation of [SimpleSAMLphp](https://simplesamlphp.org) and 
 For this test the following is assumed:
 - The entity id of the SP is `http://app.example.com`.
 - The local development URL of the SP is `http://localhost`.
-- The local developemnt URL of the IdP is `http://localhost:8080`.
+- The local development URL of the IdP is `http://localhost:8080`.
 
 The entity id is only the name of SP and the contained URL wont be used as part of the auth mechanism.
 
@@ -85,6 +91,13 @@ $metadata['http://localhost:8080/simplesaml/saml2/idp/metadata.php'] = array(
 Start the development IdP with the command above (usage) and initiate the login from the development SP under `http://localhost/simplesaml`.
 
 Click under `Authentication` > `Test configured authentication sources` > `test-sp` and login with one of the test credentials.
+
+
+## Contributing
+
+See [CONTRIBUTION.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/CONTRIBUTION.md) for information on how to contribute to the project.
+
+See [CONTRIBUTORS.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/CONTRIBUTORS.md) for the list of contributors.
 
 
 ## License
