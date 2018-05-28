@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -r /var/lib/apt/lists/*
 
 # SimpleSAMLphp
-ARG SIMPLESAMLPHP_VERSION=1.15.2
+ARG SIMPLESAMLPHP_VERSION=1.15.4
 RUN curl -s -L -o /tmp/simplesamlphp.tar.gz https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SIMPLESAMLPHP_VERSION/simplesamlphp-$SIMPLESAMLPHP_VERSION.tar.gz && \
     tar xzf /tmp/simplesamlphp.tar.gz -C /tmp && \
     rm -f /tmp/simplesamlphp.tar.gz  && \
@@ -24,10 +24,21 @@ COPY config/apache/ports.conf /etc/apache2
 COPY config/apache/simplesamlphp.conf /etc/apache2/sites-available
 COPY config/apache/cert.crt /etc/ssl/cert/cert.crt
 COPY config/apache/private.key /etc/ssl/private/private.key
+
+COPY config/apache/ca /etc/apache2/trusted-ca
+RUN ln -s /etc/apache2/trusted-ca/ca.crt /etc/apache2/trusted-ca/`openssl x509 -subject_hash -noout -in /etc/apache2/trusted-ca/ca.crt`.0
+
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
     a2enmod ssl && \
     a2dissite 000-default.conf default-ssl.conf && \
     a2ensite simplesamlphp.conf
+
+# authX509toSAML
+RUN curl -s -L -o /tmp/authX509toSAML.tar.gz https://github.com/jkakavas/authX509toSAML/archive/master.tar.gz && \
+    tar xzf /tmp/authX509toSAML.tar.gz -C /tmp && \
+    rm -f /tmp/authX509toSAML.tar.gz  && \
+    mv /tmp/authX509toSAML-* /var/www/simplesamlphp/modules/authX509toSAML && \
+    touch /var/www/simplesamlphp/modules/authX509toSAML/enable
 
 # Set work dir
 WORKDIR /var/www/simplesamlphp

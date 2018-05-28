@@ -12,7 +12,7 @@ Built with [SimpleSAMLphp](https://simplesamlphp.org). Based on official PHP7 Ap
 
 SimpleSAMLphp is logging to stdout on debug log level. Apache is logging error and access log to stdout.
 
-The contained version of SimpleSAMLphp is 1.15.2.
+The contained version of SimpleSAMLphp is 1.15.4.
 
 
 ## Supported Tags
@@ -93,6 +93,17 @@ Start the development IdP with the command above (usage) and initiate the login 
 
 Click under `Authentication` > `Test configured authentication sources` > `test-sp` and login with one of the test credentials.
 
+## x509 Certificate Authentication
+
+The project support the authentication by x509 Certificate thanks to https://github.com/jkakavas/authX509toSAML on SSL connection (`https://localhost:8443`).
+
+To initiate a certificate authentication replace from the `SingleSignOnService` and `SingleLogoutService` the `simplesaml` folder by `simplesaml-cert`, the protocol and port number from the URL.
+The `SingleSignOnService` URL: `http://localhost:8080/simplesaml/saml2/idp/SSOService.php` becomes `https://localhost:8443/simplesaml-sert/saml2/idp/SSOService.php`.
+The `SingleLogoutService` URL: `http://localhost:8080/simplesaml/saml2/idp/SingleLogoutService.php` becomes `https://localhost:8443/simplesaml-cert/saml2/idp/SingleLogoutService.php`
+
+A test client certificate is available on `client-certificate\client-test.p12` the password is `test`.
+
+The password for the provided CA in `config/apache/ca` is `test`.
 
 ## Contributing
 
