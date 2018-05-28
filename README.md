@@ -98,8 +98,12 @@ Click under `Authentication` > `Test configured authentication sources` > `test-
 The project support the authentication by x509 Certificate thanks to https://github.com/jkakavas/authX509toSAML on SSL connection (`https://localhost:8443`).
 
 To initiate a certificate authentication replace from the `SingleSignOnService` and `SingleLogoutService` the `simplesaml` folder by `simplesaml-cert`, the protocol and port number from the URL.
-The `SingleSignOnService` URL: `http://localhost:8080/simplesaml/saml2/idp/SSOService.php` becomes `https://localhost:8443/simplesaml-sert/saml2/idp/SSOService.php`.
-The `SingleLogoutService` URL: `http://localhost:8080/simplesaml/saml2/idp/SingleLogoutService.php` becomes `https://localhost:8443/simplesaml-cert/saml2/idp/SingleLogoutService.php`
+
+The `SingleSignOnService` URL: 
+`http://localhost:8080/simplesaml/saml2/idp/SSOService.php` becomes `https://localhost:8443/simplesaml-sert/saml2/idp/SSOService.php`
+
+The `SingleLogoutService` URL: 
+`http://localhost:8080/simplesaml/saml2/idp/SingleLogoutService.php` becomes `https://localhost:8443/simplesaml-cert/saml2/idp/SingleLogoutService.php`
 
 A test client certificate is available on `client-certificate\client-test.p12` the password is `test`.
 
