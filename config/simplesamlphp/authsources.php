@@ -20,4 +20,16 @@ $config = array(
         ),
     ),
 
+    'x509' => array(
+        'authX509toSAML:X509userCert',
+        'authX509toSAML:cert_name_attribute' => 'CN',
+        'authX509toSAML:assertion_name_attribute' => 'displayName',
+        'authX509toSAML:assertion_dn_attribute' => 'distinguishedName',
+        'authX509toSAML:assertion_o_attribute' => 'o',
+        'authX509toSAML:assetion_assurance_attribute' => 'eduPersonAssurance',
+        'authX509toSAML:parse_san_emails' => true,
+        'authX509toSAML:parse_policy' => true,
+        'authX509toSAML:export_eppn' => false,
+    )
+
 );
