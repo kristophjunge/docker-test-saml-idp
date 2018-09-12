@@ -1,3 +1,7 @@
+## 2018-09-12 v1.16.1-2
+
+* Default to persistent NameID format with uid
+
 ## 2018-09-12 v1.16.1-1
 
 * Updated SimpleSAMLphp to version 1.16.1.
