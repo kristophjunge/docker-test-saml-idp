@@ -1,3 +1,7 @@
+## 2018-09-12 v1.16.1-1
+
+* Updated SimpleSAMLphp to version 1.16.1.
+
 ## 2018-02-04 v1.15.2-1
 
 * Changed PHP version to 7.1 instead of 7.x because of compatibility issues.
