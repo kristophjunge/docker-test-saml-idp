@@ -1,3 +1,10 @@
+## 2019-04-26 v1.17.2-1
+
+* Updated SimpleSAMLphp to version 1.17.2.
+* Add two additional example users
+* Provide first/last name as example attributes
+* Remove eduPersonAffiliation example attribute
+
 ## 2018-09-12 v1.16.1-2
 
 * Default to persistent NameID format with uid
