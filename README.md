@@ -1,8 +1,8 @@
 # Docker Test SAML 2.0 Identity Provider (IdP)
 
-[![DockerHub Pulls](https://img.shields.io/docker/pulls/kristophjunge/test-saml-idp.svg)](https://hub.docker.com/r/kristophjunge/test-saml-idp/) [![DockerHub Stars](https://img.shields.io/docker/stars/kristophjunge/test-saml-idp.svg)](https://hub.docker.com/r/kristophjunge/test-saml-idp/) [![GitHub Stars](https://img.shields.io/github/stars/kristophjunge/docker-test-saml-idp.svg?label=github%20stars)](https://github.com/kristophjunge/docker-test-saml-idp) [![GitHub Forks](https://img.shields.io/github/forks/kristophjunge/docker-test-saml-idp.svg?label=github%20forks)](https://github.com/kristophjunge/docker-test-saml-idp) [![GitHub License](https://img.shields.io/github/license/kristophjunge/docker-test-saml-idp.svg)](https://github.com/kristophjunge/docker-test-saml-idp)
+Forked from https://github.com/kristophjunge/docker-test-saml-idp
 
-![Seal of Approval](https://raw.githubusercontent.com/kristophjunge/docker-test-saml-idp/master/seal.jpg)
+[![DockerHub Pulls](https://img.shields.io/docker/pulls/jamedjo/test-saml-idp.svg)](https://hub.docker.com/r/jamedjo/test-saml-idp/) [![DockerHub Stars](https://img.shields.io/docker/stars/jamedjo/test-saml-idp.svg)](https://hub.docker.com/r/jamedjo/test-saml-idp/) [![GitHub Stars](https://img.shields.io/github/stars/jamedjo/docker-test-saml-idp.svg?label=github%20stars)](https://github.com/jamedjo/docker-test-saml-idp) [![GitHub Forks](https://img.shields.io/github/forks/jamedjo/docker-test-saml-idp.svg?label=github%20forks)](https://github.com/jamedjo/docker-test-saml-idp) [![GitHub License](https://img.shields.io/github/license/jamedjo/docker-test-saml-idp.svg)](https://github.com/jamedjo/docker-test-saml-idp)
 
 Docker container with a plug and play SAML 2.0 Identity Provider (IdP) for development and testing.
 
@@ -12,19 +12,18 @@ Built with [SimpleSAMLphp](https://simplesamlphp.org). Based on official PHP7 Ap
 
 SimpleSAMLphp is logging to stdout on debug log level. Apache is logging error and access log to stdout.
 
-The contained version of SimpleSAMLphp is 1.16.1.
+The contained version of SimpleSAMLphp is 1.17.2.
 
 
 ## Supported Tags
 
-- `1.16` [(Dockerfile)](https://github.com/kristophjunge/docker-test-saml-idp/blob/1.16/Dockerfile)
-- `1.15` [(Dockerfile)](https://github.com/kristophjunge/docker-test-saml-idp/blob/1.15/Dockerfile)
-- `1.14` [(Dockerfile)](https://github.com/kristophjunge/docker-test-saml-idp/blob/1.14/Dockerfile)
+- `1.17` [(Dockerfile)](https://github.com/jamedjo/docker-test-saml-idp/blob/1.17/Dockerfile)
+- `1.16` [(Dockerfile)](https://github.com/jamedjo/docker-test-saml-idp/blob/1.16/Dockerfile)
 
 
 ## Changelog
 
-See [CHANGELOG.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/docs/CHANGELOG.md) for information about the latest changes.
+See [CHANGELOG.md](https://github.com/jamedjo/docker-test-saml-idp/blob/master/docs/CHANGELOG.md) for information about the latest changes.
 
 
 ## Usage
@@ -36,15 +35,17 @@ docker run --name=testsamlidp_idp \
 -e SIMPLESAMLPHP_SP_ENTITY_ID=http://app.example.com \
 -e SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp \
 -e SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp \
--d kristophjunge/test-saml-idp
+-d jamedjo/test-saml-idp
 ```
 
-There are two static users configured in the IdP with the following data:
+There are three static users configured in the IdP with the following data:
 
-| UID | Username | Password | Group | Email |
+| UID | Username | Password | Email |
 |---|---|---|---|---|
-| 1 | user1 | user1pass | group1 | user1@example.com |
-| 2 | user2 | user2pass | group2 | user2@example.com |
+| 1 | user1 | user1pass | user_1@example.com |
+| 2 | user2 | user2pass | user_2@example.com |
+| 3 | user3 | user3pass | user_3@example.com |
+| 4 | user4 | user4pass | user_4@example.com |
 
 However you can define your own users by mounting a configuration file:
 
@@ -97,7 +98,7 @@ Click under `Authentication` > `Test configured authentication sources` > `test-
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/docs/CONTRIBUTING.md) for information on how to contribute to the project.
+See [CONTRIBUTING.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/docs/CONTRIBUTING.md) for information on how to contribute to the parent project.
 
 See [CONTRIBUTORS.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/docs/CONTRIBUTORS.md) for the list of contributors.
 
