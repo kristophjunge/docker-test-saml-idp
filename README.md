@@ -38,10 +38,10 @@ docker run --name=testsamlidp_idp \
 -d jamedjo/test-saml-idp
 ```
 
-There are three static users configured in the IdP with the following data:
+There are four static users configured in the IdP with the following data:
 
 | UID | Username | Password | Email |
-|---|---|---|---|---|
+|---|---|---|---|
 | 1 | user1 | user1pass | user_1@example.com |
 | 2 | user2 | user2pass | user_2@example.com |
 | 3 | user3 | user3pass | user_3@example.com |
