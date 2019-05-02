@@ -3,13 +3,46 @@ services:
   testsamlidp_idp:
     build: .
     environment:
-      SIMPLESAMLPHP_SP_ENTITY_ID: http://app.example.com
-      SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE: http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp
-      SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE: http://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp
+      # SIMPLESAMLPHP_SP_ENTITY_ID: http://app.example.com
+      # SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE: http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp
+      # SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE: http://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp
       SIMPLESAMLPHP_ADMIN_PASSWORD: test
       SIMPLESAMLPHP_SECRET_SALT: salt
+      SIMPLESAMLPHP_SP_METADATA: |
+        {
+            "http://app.example.com": {
+                "AssertionConsumerService": "http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp",
+                "SingleLogoutService": "http://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp" 
+            },
+            "passport-saml": {
+                "OrganizationName": "PassportJS SAML example",
+                "OrganizationURL": "https://github.com/gbraad/passport-saml-example",
+                "AssertionConsumerService": "http://localhost:3000/login/callback",
+                "SingleLogoutService": "http://localhost:3000/simplesaml/logout" 
+            },
+            "http://localhost:8888": {
+                "AssertionConsumerService": "http://localhost:8888/logon"
+            }
+        }
+      SIMPLESAMLPHP_USERS: |
+        {
+            "user1:user1pass": {
+                "email": "user1@env-var.com",
+                "UID": "us11111",
+                "Country code": "US",
+                "name": "Joe User",
+                "Telephone number": "555-11-11-11",
+                "Another Attribute": "one"
+            },
+            "user2:user2pass": {
+                "email": "user2@env-var.com",
+                "UID": "us22222",
+                "Country code": "44",
+                "name": "Jack User",
+                "Telephone number": "555-22-22-22",
+                "Another Attribute": "two"
+            }
+        }
     ports:
     - "8080:8080"
     - "8443:8443"
-    #volumes:
-    #- /users.php:/var/www/simplesamlphp/config/simplesamlphp/authsources.php
