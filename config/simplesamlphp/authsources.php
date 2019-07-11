@@ -1,23 +1,25 @@
 <?php
 
-$config = array(
+/**
+ * @file
+ * Used to define the test SAML user accounts.
+ */
 
-    'admin' => array(
+$config = [
+    'admin' => [
         'core:AdminPassword',
-    ),
-
-    'example-userpass' => array(
+    ],
+    'example-userpass' => [
         'exampleauth:UserPass',
-        'user1:user1pass' => array(
-            'uid' => array('1'),
-            'eduPersonAffiliation' => array('group1'),
+        'user1:user1pass' => [
+            'uid' => ['1'],
+            'eduPersonAffiliation' => ['group1'],
             'email' => 'user1@example.com',
-        ),
-        'user2:user2pass' => array(
-            'uid' => array('2'),
-            'eduPersonAffiliation' => array('group2'),
+        ],
+        'user2:user2pass' => [
+            'uid' => ['2'],
+            'eduPersonAffiliation' => ['group2'],
             'email' => 'user2@example.com',
-        ),
-    ),
-
-);
+        ],
+    ],
+];
