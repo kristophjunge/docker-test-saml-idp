@@ -33,4 +33,4 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 WORKDIR /var/www/simplesamlphp
 
 # General setup
-EXPOSE 8080 8443
+EXPOSE 8081 8443

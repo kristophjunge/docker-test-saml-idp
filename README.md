@@ -28,9 +28,16 @@ See [CHANGELOG.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/ma
 
 ## Usage
 
+### Env variables
+* SAML_SP_NAME
+* SAML_SP_ASSERTION_ENDPOINT
+ 
+
+## Usage
+
 ```
 docker run --name=testsamlidp_idp \
--p 8080:8080 \
+-p 8081:8081 \
 -p 8443:8443 \
 -e SIMPLESAMLPHP_SP_ENTITY_ID=http://app.example.com \
 -e SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp \
@@ -51,7 +58,7 @@ However you can define your own users by mounting a configuration file:
 -v /users.php:/var/www/simplesamlphp/config/authsources.php
 ```
 
-You can access the SimpleSAMLphp web interface of the IdP under `http://localhost:8080/simplesaml`. The admin password is `secret`.
+You can access the SimpleSAMLphp web interface of the IdP under `http://localhost:8081/simplesaml`. The admin password is `secret`.
 
 
 ## Test the Identity Provider (IdP)
@@ -63,7 +70,7 @@ Download a fresh installation of [SimpleSAMLphp](https://simplesamlphp.org) and 
 For this test the following is assumed:
 - The entity id of the SP is `http://app.example.com`.
 - The local development URL of the SP is `http://localhost`.
-- The local development URL of the IdP is `http://localhost:8080`.
+- The local development URL of the IdP is `http://localhost:8081`.
 
 The entity id is only the name of SP and the contained URL wont be used as part of the auth mechanism.
 
@@ -72,19 +79,19 @@ Add the following entry to the `config/authsources.php` file of SimpleSAMLphp.
     'test-sp' => array(
         'saml:SP',
         'entityID' => 'http://app.example.com',
-        'idp' => 'http://localhost:8080/simplesaml/saml2/idp/metadata.php',
+        'idp' => 'http://localhost:8081/simplesaml/saml2/idp/metadata.php',
     ),
 ```
 
 Add the following entry to the `metadata/saml20-idp-remote.php` file of SimpleSAMLphp.
 ```
-$metadata['http://localhost:8080/simplesaml/saml2/idp/metadata.php'] = array(
+$metadata['http://localhost:8081/simplesaml/saml2/idp/metadata.php'] = array(
     'name' => array(
         'en' => 'Test IdP',
     ),
     'description' => 'Test IdP',
-    'SingleSignOnService' => 'http://localhost:8080/simplesaml/saml2/idp/SSOService.php',
-    'SingleLogoutService' => 'http://localhost:8080/simplesaml/saml2/idp/SingleLogoutService.php',
+    'SingleSignOnService' => 'http://localhost:8081/simplesaml/saml2/idp/SSOService.php',
+    'SingleLogoutService' => 'http://localhost:8081/simplesaml/saml2/idp/SingleLogoutService.php',
     'certFingerprint' => '119b9e027959cdb7c662cfd075d9e2ef384e445f',
 );
 ```

@@ -654,7 +654,7 @@ $config = array(
      *
      * This example defines an mdx source.
      * 'metadata.sources' => array(
-     *     array('type' => 'mdx', server => 'http://mdx.server.com:8080', 'cachedir' => '/var/simplesamlphp/mdx-cache', 'cachelength' => 86400)
+     *     array('type' => 'mdx', server => 'http://mdx.server.com:8081', 'cachedir' => '/var/simplesamlphp/mdx-cache', 'cachelength' => 86400)
      *     ),
      *
      * This example defines an pdo source.

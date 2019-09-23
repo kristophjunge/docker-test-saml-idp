@@ -1,23 +1,21 @@
 <?php
 
 $config = array(
-
-    'admin' => array(
-        'core:AdminPassword',
+  'admin' => array(
+    'core:AdminPassword',
+  ),
+  'diagnostics-sp' => array(
+    'exampleauth:UserPass',
+    'nexiadealer:nexiadealer' => array(
+      'uid' => array('1'),
+      'roles' => array('dealer'),
+      'email' => 'dealer@diagnostics.com',
     ),
-
-    'example-userpass' => array(
-        'exampleauth:UserPass',
-        'user1:user1pass' => array(
-            'uid' => array('1'),
-            'eduPersonAffiliation' => array('group1'),
-            'email' => 'user1@example.com',
-        ),
-        'user2:user2pass' => array(
-            'uid' => array('2'),
-            'eduPersonAffiliation' => array('group2'),
-            'email' => 'user2@example.com',
-        ),
+    'nexiaadmin:nexiaadmin' => array(
+      'uid' => array('2'),
+      'roles' => array('admin'),
+      'email' => 'admin@diagnostics.com',
     ),
+  ),
 
 );
