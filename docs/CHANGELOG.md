@@ -1,3 +1,8 @@
+## 2019-10-06 v1.17.6-1
+
+* Updated SimpleSAMLphp to version 1.17.6.
+* Updated PHP to 7.3
+
 ## 2019-04-26 v1.17.2-1
 
 * Updated SimpleSAMLphp to version 1.17.2.
