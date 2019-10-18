@@ -7,7 +7,7 @@ $config = array(
   'diagnostics-sp' => array(
     'exampleauth:UserPass',
     'nexiadealer:nexiadealer' => array(
-      'user_id' => array('1'),
+      'user_id' => '1',
       'roles' => array('dealer'),
       'email' => 'dealer@diagnostics.com',
       'dealer_guid' => 'dealer_guid',
@@ -25,7 +25,7 @@ $config = array(
       'logo' => 'logo'
     ),
     'nexiaadmin:nexiaadmin' => array(
-      'user_id' => array('2'),
+      'user_id' => '2',
       'roles' => array('admin'),
       'email' => 'admin@diagnostics.com',
       'dealer_guid' => 'dealer_guid',
