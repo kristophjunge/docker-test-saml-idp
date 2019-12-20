@@ -45,6 +45,25 @@ $config = array(
       'companyChannel' => '',
       'companyLogo' => ''
     ),
+    'nexiafsr:nexiafsr' => array(
+      'GUID' => '62e306e5-4597-493a-8271-dd2c3c546b19',
+      'userID' => 'nexiafsr',
+      'userFullName' => 'Franklin Fogherty',
+      'userFirstName' => 'Franklin',
+      'userLastName' => 'Fogherty',
+      'userPermissions' => 'Brand.Trane,Channel.IWD,Account.OfficeSupplier,Nexia.FSR,Nexia.Dealer',
+      'companyId' => 'feba2f1e-5f63-42f9-be20-c0bc66b6ec9a',
+      'companyName' => 'Demo IWD',
+      'companyPhoneNumber' => '412-293-1212',
+      'companyContactEmail' => '',
+      'companyAddress' => '1234 Test street',
+      'companyCity' => 'Nashville',
+      'companyState' => 'TN',
+      'companyZip' => '12345',
+      'companyBrand' => 'Trane',
+      'companyChannel' => 'IWD',
+      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg'
+    ),
   ),
 );
 
