@@ -93,6 +93,12 @@ Start the development IdP with the command above (usage) and initiate the login 
 
 Click under `Authentication` > `Test configured authentication sources` > `test-sp` and login with one of the test credentials.
 
+### Behind a reverse proxy
+
+If you need to deal with HTTPS or a different port behing a reverse proxy, override the default SimpleSamlPhp `baseurlpath` by adding the following env:
+```
+SIMPLESAMLPHP_BASE_URL=https://your.canonical.host.name/simplesaml/
+``` 
 
 ## Contributing
 

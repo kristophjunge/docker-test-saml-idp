@@ -21,7 +21,7 @@ $config = array(
      * external url, no matter where you come from (direct access or via the
      * reverse proxy).
      */
-    'baseurlpath' => 'simplesaml/',
+    'baseurlpath' => !empty(getenv('SIMPLESAMLPHP_BASE_URL')) ? getenv('SIMPLESAMLPHP_BASE_URL') : 'simplesaml/',
     'certdir' => 'cert/',
     'loggingdir' => 'log/',
     'datadir' => 'data/',
