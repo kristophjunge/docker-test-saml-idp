@@ -8,7 +8,7 @@ $config = array(
     'exampleauth:UserPass',
     'nexiadealer:nexiadealer' => array(
       'GUID' => '51e97951-0cbb-4c85-ae1e-dc5f3460edce',
-      'userID' => 'NexiaDealer',
+      'UserID' => 'NexiaDealer',
       'userFullName' => 'Christina Cho',
       'userFirstName' => 'Christina',
       'userLastName' => 'Cho',
@@ -28,7 +28,7 @@ $config = array(
     ),
     'nexiaadmin:nexiaadmin' => array(
       'GUID' => '62e306e5-4597-493a-8271-dd2c3c546b19',
-      'userID' => 'NexiaAdmin',
+      'UserID' => 'NexiaAdmin',
       'userFullName' => 'Franklin Fogherty',
       'userFirstName' => 'Franklin',
       'userLastName' => 'Fogherty',
@@ -47,7 +47,7 @@ $config = array(
     ),
     'nexiafsr:nexiafsr' => array(
       'GUID' => '62e306e5-4597-493a-8271-dd2c3c546b19',
-      'userID' => 'nexiafsr',
+      'UserID' => 'nexiafsr',
       'userFullName' => 'Franklin Fogherty',
       'userFirstName' => 'Franklin',
       'userLastName' => 'Fogherty',
@@ -66,4 +66,3 @@ $config = array(
     ),
   ),
 );
-
