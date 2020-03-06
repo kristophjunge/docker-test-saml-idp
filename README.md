@@ -91,6 +91,14 @@ have to do the following:
 4. Rebuild the conainer
 `make dev-container`
 
+5. You will either need to restart diagnostics or the SAML idp. You can do so by running the following
+in the `nexia_development` directory
+
+`docker-compose run --name home_webapp --rm --service-ports home_webapp script/puma_dev.sh`
+
+or restart the saml IDP
+
+`docker-compose up samlidp`
 
 
 ## License
