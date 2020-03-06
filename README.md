@@ -27,85 +27,70 @@ See [CHANGELOG.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/ma
 
 
 ## Usage
-
-### Env variables
-* SAML_SP_NAME
-* SAML_SP_ASSERTION_ENDPOINT
- 
-
-## Usage
-
 ```
 docker run --name=testsamlidp_idp \
 -p 8081:8081 \
--p 8443:8443 \
--e SIMPLESAMLPHP_SP_ENTITY_ID=http://app.example.com \
--e SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp \
--e SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp \
--d kristophjunge/test-saml-idp
+-e SIMPLESAMLPHP_SP_ENTITY_ID=https://gus-diagnostics.tranetechdev.com
+-e SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=https://gus-diagnostics.tranetechdev.com/api/sessions/saml/assertion
+-e SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=https://gus-diagnostics.tranetechdev.com/api/sessions/saml-logout
+-e SIMPLESAMLPHP_ADMIN_PASSWORD=samladmin
+-e SIMPLESAMLPHP_SECRET_SALT=salt
+-e SIMPLESAMLPHP_BASEURLPATH=https://gus-samlidp.tranetechdev.com/simplesaml/
+-d registry.nexiabuild.com/nexia_diagnostics_saml_idp
 ```
 
-There are two static users configured in the IdP with the following data:
+## Managing users
+There are currently 3 users defined in the configuration
 
-| UID | Username | Password | Group | Email |
-|---|---|---|---|---|
-| 1 | user1 | user1pass | group1 | user1@example.com |
-| 2 | user2 | user2pass | group2 | user2@example.com |
+* nexiadealer
+* nexiaadmin
+* nexiafsr
 
-However you can define your own users by mounting a configuration file:
+The password for these users is the same as the username. If you want to add or remove users 
+you can edit the file https://github.com/nexiahome/docker-test-saml-idp/blob/master/config/simplesamlphp/authsources.php 
 
+The example below is for a user that has a username and password of nexiadealer. The key of the 
+hash is the username and password in the format of `username:password`
 ```
--v /users.php:/var/www/simplesamlphp/config/authsources.php
-```
-
-You can access the SimpleSAMLphp web interface of the IdP under `http://localhost:8081/simplesaml`. The admin password is `secret`.
-
-
-## Test the Identity Provider (IdP)
-
-To ensure that the IdP works you can use SimpleSAMLphp as test SP.
-
-Download a fresh installation of [SimpleSAMLphp](https://simplesamlphp.org) and configure it for your favorite web server.
-
-For this test the following is assumed:
-- The entity id of the SP is `http://app.example.com`.
-- The local development URL of the SP is `http://localhost`.
-- The local development URL of the IdP is `http://localhost:8081`.
-
-The entity id is only the name of SP and the contained URL wont be used as part of the auth mechanism.
-
-Add the following entry to the `config/authsources.php` file of SimpleSAMLphp.
-```
-    'test-sp' => array(
-        'saml:SP',
-        'entityID' => 'http://app.example.com',
-        'idp' => 'http://localhost:8081/simplesaml/saml2/idp/metadata.php',
-    ),
+'nexiadealer:nexiadealer' => array(
+  'GUID' => '51e97951-0cbb-4c85-ae1e-dc5f3460edce',
+  'UserID' => 'NexiaDealer',
+  'userFullName' => 'Christina Cho',
+  'userFirstName' => 'Christina',
+  'userLastName' => 'Cho',
+  'userEmail' => "ccho@irco.com",
+  'userPermissions' => 'Brand.Trane,Channel.IWD,Account.Dealer,Nexia.Dealer',
+  'companyId' => '47ee0922-5989-4e41-9e99-d23c11fa9f5b',
+  'companyName' => 'Demo IWD Customer',
+  'companyPhoneNumber' => '412-293-1212',
+  'companyContactEmail' => '',
+  'companyAddress' => '370 Interlocken Blvd',
+  'companyCity' => 'Broomfield',
+  'companyState' => 'CO',
+  'companyZip' => '80020',
+  'companyBrand' => 'Nexia',
+  'companyChannel' => '',
+  'companyLogo' => ''
+)
 ```
 
-Add the following entry to the `metadata/saml20-idp-remote.php` file of SimpleSAMLphp.
-```
-$metadata['http://localhost:8081/simplesaml/saml2/idp/metadata.php'] = array(
-    'name' => array(
-        'en' => 'Test IdP',
-    ),
-    'description' => 'Test IdP',
-    'SingleSignOnService' => 'http://localhost:8081/simplesaml/saml2/idp/SSOService.php',
-    'SingleLogoutService' => 'http://localhost:8081/simplesaml/saml2/idp/SingleLogoutService.php',
-    'certFingerprint' => '119b9e027959cdb7c662cfd075d9e2ef384e445f',
-);
-```
+## Rebuilding the container
+If you are running this in the diagnostics ecosystem then you will need to rebuild the
+container whenerver you make changes. For example if you add a new user. To accomplish this you will
+have to do the following:
 
-Start the development IdP with the command above (usage) and initiate the login from the development SP under `http://localhost/simplesaml`.
+1. Find the running conainer
+`docker ps | grep saml and find the id for this container.`
 
-Click under `Authentication` > `Test configured authentication sources` > `test-sp` and login with one of the test credentials.
+2. Stop the container
+`docker stop {that_container_id}`
 
+3. Remove the stopped container
+`docker rm {that_container_id}`
 
-## Contributing
+4. Rebuild the conainer
+`make dev-container`
 
-See [CONTRIBUTING.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/docs/CONTRIBUTING.md) for information on how to contribute to the project.
-
-See [CONTRIBUTORS.md](https://github.com/kristophjunge/docker-test-saml-idp/blob/master/docs/CONTRIBUTORS.md) for the list of contributors.
 
 
 ## License
