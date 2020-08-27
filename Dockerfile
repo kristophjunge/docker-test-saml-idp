@@ -1,9 +1,11 @@
-FROM php:7.1-apache
+FROM php:7.4-apache
 MAINTAINER Kristoph Junge <kristoph.junge@gmail.com>
 
 # Utilities
 RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get -y install apt-transport-https git curl vim --no-install-recommends && \
+    apt autoremove -y && \
     rm -r /var/lib/apt/lists/*
 
 # SimpleSAMLphp
@@ -31,6 +33,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 
 # Set work dir
 WORKDIR /var/www/simplesamlphp
+
+USER www-data
 
 # General setup
 EXPOSE 8080 8443
