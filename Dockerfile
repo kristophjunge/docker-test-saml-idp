@@ -26,6 +26,7 @@ COPY config/apache/ports.conf /etc/apache2
 COPY config/apache/simplesamlphp.conf /etc/apache2/sites-available
 COPY config/apache/cert.crt /etc/ssl/cert/cert.crt
 COPY config/apache/private.key /etc/ssl/private/private.key
+RUN chmod 755 /etc/ssl/private /etc/ssl/cert
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
     a2enmod ssl && \
     a2dissite 000-default.conf default-ssl.conf && \
