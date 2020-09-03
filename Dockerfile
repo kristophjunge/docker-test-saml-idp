@@ -1,13 +1,15 @@
-FROM php:7.1-apache
+FROM php:7.4-apache
 MAINTAINER Kristoph Junge <kristoph.junge@gmail.com>
 
 # Utilities
 RUN apt-get update && \
+    apt-get upgrade -y && \
     apt-get -y install apt-transport-https git curl vim --no-install-recommends && \
+    apt autoremove -y && \
     rm -r /var/lib/apt/lists/*
 
 # SimpleSAMLphp
-ARG SIMPLESAMLPHP_VERSION=1.15.2
+ARG SIMPLESAMLPHP_VERSION=1.18.7
 RUN curl -s -L -o /tmp/simplesamlphp.tar.gz https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SIMPLESAMLPHP_VERSION/simplesamlphp-$SIMPLESAMLPHP_VERSION.tar.gz && \
     tar xzf /tmp/simplesamlphp.tar.gz -C /tmp && \
     rm -f /tmp/simplesamlphp.tar.gz  && \
@@ -24,6 +26,7 @@ COPY config/apache/ports.conf /etc/apache2
 COPY config/apache/simplesamlphp.conf /etc/apache2/sites-available
 COPY config/apache/cert.crt /etc/ssl/cert/cert.crt
 COPY config/apache/private.key /etc/ssl/private/private.key
+RUN chmod 755 /etc/ssl/private /etc/ssl/cert
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
     a2enmod ssl && \
     a2dissite 000-default.conf default-ssl.conf && \
@@ -31,6 +34,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 
 # Set work dir
 WORKDIR /var/www/simplesamlphp
+
+USER www-data
 
 # General setup
 EXPOSE 8080 8443
