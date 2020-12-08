@@ -9,3 +9,11 @@ $metadata[getenv('SIMPLESAMLPHP_SP_ENTITY_ID')] = array(
     'AssertionConsumerService' => getenv('SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE'),
     'SingleLogoutService' => getenv('SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE'),
 );
+
+if (null != getenv('SIMPLESAMLPHP_SP_NAME_ID_FORMAT')) {
+    $metadata[getenv('SIMPLESAMLPHP_SP_ENTITY_ID')] = array_merge($metadata[getenv('SIMPLESAMLPHP_SP_ENTITY_ID')], array('NameIDFormat' => getenv('SIMPLESAMLPHP_SP_NAME_ID_FORMAT')));
+}
+
+if (null != getenv('SIMPLESAMLPHP_SP_NAME_ID_ATTRIBUTE')) {
+    $metadata[getenv('SIMPLESAMLPHP_SP_ENTITY_ID')] = array_merge($metadata[getenv('SIMPLESAMLPHP_SP_ENTITY_ID')], array('simplesaml.nameidattribute' => getenv('SIMPLESAMLPHP_SP_NAME_ID_ATTRIBUTE')));
+}
