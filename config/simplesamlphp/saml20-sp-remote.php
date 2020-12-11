@@ -17,3 +17,7 @@ if (null != getenv('SIMPLESAMLPHP_SP_NAME_ID_FORMAT')) {
 if (null != getenv('SIMPLESAMLPHP_SP_NAME_ID_ATTRIBUTE')) {
     $metadata[getenv('SIMPLESAMLPHP_SP_ENTITY_ID')] = array_merge($metadata[getenv('SIMPLESAMLPHP_SP_ENTITY_ID')], array('simplesaml.nameidattribute' => getenv('SIMPLESAMLPHP_SP_NAME_ID_ATTRIBUTE')));
 }
+
+if (null != getenv('SIMPLESAMLPHP_SP_SIGN_ASSERTION')) {
+    $metadata[getenv('SIMPLESAMLPHP_SP_ENTITY_ID')] = array_merge($metadata[getenv('SIMPLESAMLPHP_SP_ENTITY_ID')], array('saml20.sign.assertion' => ('true' == getenv('SIMPLESAMLPHP_SP_SIGN_ASSERTION'))));
+}
