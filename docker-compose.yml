@@ -12,4 +12,4 @@ services:
     - "8080:8080"
     - "8443:8443"
     #volumes:
-    #- /users.php:/var/www/simplesamlphp/config/simplesamlphp/authsources.php
+    #- ./users.php:/var/www/simplesamlphp/config/authsources.php
