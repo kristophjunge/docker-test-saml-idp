@@ -24,7 +24,8 @@ $config = array(
       'companyZip' => '80020',
       'companyBrand' => 'Nexia',
       'companyChannel' => '',
-      'companyLogo' => ''
+      'companyLogo' => '',
+      'companyR12AcctNbr' => '000123456789'
     ),
     'nexiaadmin:nexiaadmin' => array(
       'GUID' => '62e306e5-4597-493a-8271-dd2c3c546b19',
@@ -43,7 +44,8 @@ $config = array(
       'companyZip' => '80020',
       'companyBrand' => 'Nexia',
       'companyChannel' => '',
-      'companyLogo' => ''
+      'companyLogo' => '',
+      'companyR12AcctNbr' => '999999999999'
     ),
     'nexiafsr:nexiafsr' => array(
       'GUID' => '62e306e5-4597-493a-8271-dd2c3c546b19',
@@ -62,7 +64,8 @@ $config = array(
       'companyZip' => '12345',
       'companyBrand' => 'Trane',
       'companyChannel' => 'IWD',
-      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg'
+      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg',
+      'companyR12AcctNbr' => '123456789999'
     ),
     'nexiadso:nexiadso' => array(
       'GUID' => '62e306e5-4597-493a-8271-dd2c3c546b19',
@@ -81,7 +84,8 @@ $config = array(
       'companyZip' => '12345',
       'companyBrand' => 'Trane',
       'companyChannel' => 'IWD',
-      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg'
+      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg',
+      'companyR12AcctNbr' => '123456789111'
     ),
     'nexiaiwd:nexiaiwd' => array(
       'GUID' => '62e306e5-4597-493a-8271-dd2c3c546b19',
@@ -100,7 +104,8 @@ $config = array(
       'companyZip' => '12345',
       'companyBrand' => 'Trane',
       'companyChannel' => 'IWD',
-      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg'
+      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg',
+      'companyR12AcctNbr' => '123456789222'
     ),
     'nexiautility:nexiautility' => array(
       'GUID' => '62e306e5-4597-493a-8271-dd2c3c546b19',
@@ -119,7 +124,8 @@ $config = array(
       'companyZip' => '12345',
       'companyBrand' => 'Trane',
       'companyChannel' => 'IWD',
-      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg'
+      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg',
+      'companyR12AcctNbr' => '123456789333'
     ),
     'nexiatechnician:nexiatechnician' => array(
       'GUID' => '62e306e5-4597-493a-8271-dd2c3c546b19',
@@ -138,7 +144,8 @@ $config = array(
       'companyZip' => '12345',
       'companyBrand' => 'Trane',
       'companyChannel' => 'IWD',
-      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg'
+      'companyLogo' => 'https://staging.comfortsite.com/Resources/Partners/FEBA2F1E-5F63-42F9-BE20-C0BC66B6EC9A/logos/sampledistributorlogosm.jpg',
+      'companyR12AcctNbr' => '1234567894444'
     ),
   ),
 );
