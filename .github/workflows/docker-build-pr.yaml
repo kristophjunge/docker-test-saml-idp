@@ -1,5 +1,5 @@
 ---
-name: Docker build
+name: Docker build (PR)
 
 on:
   workflow_dispatch:
