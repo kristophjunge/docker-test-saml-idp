@@ -2,7 +2,6 @@
 name: Docker build (PR)
 
 on:
-  workflow_dispatch:
   pull_request:
     branches:
       - main
@@ -12,12 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    env:
-      REGISTRY: ghcr.io
-      REPOSITORY: ghcr.io/kuisathaverat/docker-test-saml-idp
-      VERSION: "1.16.0"
-      SIMPLESAMLPHP_VERSION: "1.15.2"
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          docker build --build-arg SIMPLESAMLPHP_VERSION=${{ env.SIMPLESAMLPHP_VERSION }} -t "${{ env.REPOSITORY }}:${{ env.VERSION }}" .
+      - run: make build

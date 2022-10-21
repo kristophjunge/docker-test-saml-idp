@@ -3,6 +3,9 @@ name: Docker build and publish (main)
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -12,9 +15,7 @@ jobs:
       packages: write
     env:
       REGISTRY: ghcr.io
-      REPOSITORY: ghcr.io/kuisathaverat/docker-test-saml-idp
-      VERSION: "1.16.0"
-      SIMPLESAMLPHP_VERSION: "1.15.2"
+      VERSION: "latest"
     steps:
       - uses: actions/checkout@v3
       - name: Log in to the Container registry
@@ -23,6 +24,7 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
-          docker build --build-arg SIMPLESAMLPHP_VERSION=${{ env.SIMPLESAMLPHP_VERSION }} -t "${{ env.REPOSITORY }}:${{ env.VERSION }}" .
-          docker push "${{ env.REPOSITORY }}:${{ env.VERSION }}"
+      - name: Build
+        run: make build
+      - name: Publish
+        run: make publish
