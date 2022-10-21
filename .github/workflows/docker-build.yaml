@@ -16,8 +16,6 @@ jobs:
       VERSION: "1.16.0"
     steps:
       - uses: actions/checkout@v3
-        with:
-          repository: elastic/golang-crossbuild
       - name: Log in to the Container registry
         uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b
         with:
