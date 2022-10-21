@@ -14,6 +14,7 @@ jobs:
       REGISTRY: ghcr.io
       REPOSITORY: ghcr.io/kuisathaverat/docker-test-saml-idp
       VERSION: "1.16.0"
+      SIMPLESAMLPHP_VERSION: "1.15.2"
     steps:
       - uses: actions/checkout@v3
       - name: Log in to the Container registry
@@ -23,5 +24,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          docker build -t "${{ env.REPOSITORY }}:${{ env.VERSION }}" .
+          docker build --build-arg SIMPLESAMLPHP_VERSION=${{ env.SIMPLESAMLPHP_VERSION }} -t "${{ env.REPOSITORY }}:${{ env.VERSION }}" .
           docker push "${{ env.REPOSITORY }}:${{ env.VERSION }}"
