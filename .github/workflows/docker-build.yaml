@@ -23,4 +23,4 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          docker build -t "${{ env.REGISTRY }}:${{ env.VERSION }}" .
+          docker build -t "${{ env.REPOSITORY }}:${{ env.VERSION }}" .
