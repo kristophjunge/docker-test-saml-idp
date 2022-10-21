@@ -289,7 +289,7 @@ $config = array(
      * This value is the duration of the session in seconds. Make sure that the time duration of
      * cookies both at the SP and the IdP exceeds this duration.
      */
-    'session.duration' => 8 * (60 * 60), // 8 hours.
+    'session.duration' => intval((getenv('SIMPLESAMLPHP_SESSION_DURATION') != '') ? getenv('SIMPLESAMLPHP_SESSION_DURATION') :  8 * (60 * 60)), // 8 hours.
 
     /*
      * Sets the duration, in seconds, data should be stored in the datastore. As the datastore is used for
