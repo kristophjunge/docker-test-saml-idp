@@ -1,0 +1,28 @@
+---
+name: Docker build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      REGISTRY: ghcr.io
+      REPOSITORY: ghcr.io/kuisathaverat/docker-test-saml-idp
+      VERSION: "1.16.0"
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: elastic/golang-crossbuild
+      - name: Log in to the Container registry
+        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          docker build -t "${{ env.REGISTRY }}:${{ env.VERSION }}" .
