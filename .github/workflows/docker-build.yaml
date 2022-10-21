@@ -24,3 +24,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           docker build -t "${{ env.REPOSITORY }}:${{ env.VERSION }}" .
+          docker push "${{ env.REPOSITORY }}:${{ env.VERSION }}"
