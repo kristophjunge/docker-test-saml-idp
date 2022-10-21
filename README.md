@@ -17,6 +17,7 @@ The contained version of SimpleSAMLphp is 1.15.2.
 
 ## Supported Tags
 
+- `1.16` [(Dockerfile)](https://github.com/kuisathaverat/docker-test-saml-idp/blob/1.16/Dockerfile)
 - `1.15` [(Dockerfile)](https://github.com/kristophjunge/docker-test-saml-idp/blob/1.15/Dockerfile)
 - `1.14` [(Dockerfile)](https://github.com/kristophjunge/docker-test-saml-idp/blob/1.14/Dockerfile)
 
@@ -35,6 +36,7 @@ docker run --name=testsamlidp_idp \
 -e SIMPLESAMLPHP_SP_ENTITY_ID=http://app.example.com \
 -e SIMPLESAMLPHP_SP_ASSERTION_CONSUMER_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-acs.php/test-sp \
 -e SIMPLESAMLPHP_SP_SINGLE_LOGOUT_SERVICE=http://localhost/simplesaml/module.php/saml/sp/saml2-logout.php/test-sp \
+-e SIMPLESAMLPHP_SESSION_DURATION=$(( 8 * 60 * 60 )) \
 -d kristophjunge/test-saml-idp
 ```
 

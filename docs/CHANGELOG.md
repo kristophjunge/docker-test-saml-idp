@@ -1,3 +1,9 @@
+## 2022-10-21 v1.16.0
+
+* Add GitHub Action to build and publish the Docker image.
+* Add dependabot to manage the dependencies.
+* Add SIMPLESAMLPHP_SESSION_DURATION to allow change the session duration.
+
 ## 2018-02-04 v1.15.2-1
 
 * Changed PHP version to 7.1 instead of 7.x because of compatibility issues.
