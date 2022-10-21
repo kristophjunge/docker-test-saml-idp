@@ -2,9 +2,10 @@
 name: Docker Release (tag)
 
 on:
-  release:
-    types:
-      - published
+  workflow_dispatch:
+  push:
+    tags:
+      - "*.*.*"
 
 jobs:
   build:
