@@ -28,6 +28,9 @@ jobs:
               run: |
                   tag=${GITHUB_REF/refs\/tags\//}
                   version=${tag#v}
+                  echo "tag_name=${{ github.event.release.tag_name }}"
+                  echo "tag=${tag}"
+                  echo "version=${version}"
                   echo "version=${version}" >> $GITHUB_OUTPUT
             - uses: release-drafter/release-drafter@v5
               with:
