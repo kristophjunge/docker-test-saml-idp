@@ -55,4 +55,5 @@ run:
 ## @help:release:Perform a new release in GitHub
 .PHONY: release
 release:
-	gh release create "$(VERSION)" --title "$(VERSION)"
+	git tag "$(VERSION)"
+	git push origin "refs/tags/$(VERSION)"
