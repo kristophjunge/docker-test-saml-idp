@@ -29,10 +29,6 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build
-        run: make build
-        env:
-          VERSION: ${{ steps.version.outputs.version }}
       - name: Publish
         run: make publish
         env:
