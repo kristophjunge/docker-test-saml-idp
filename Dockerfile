@@ -1,4 +1,4 @@
-FROM php:8.1.11-apache
+FROM php:7.1-apache
 MAINTAINER Kristoph Junge <kristoph.junge@gmail.com>
 
 # Utilities
