@@ -6,6 +6,28 @@ $config = array(
   ),
   'diagnostics-sp' => array(
     'exampleauth:UserPass',
+    'unknown:unknown' => array(
+      'GUID' => '51e97951-0cbb-4c85-ae1e-dc5f3460edce',
+      'UserID' => 'NexiaDealer',
+      'EmailID' => 'dealer@nexia.com',
+      'userFullName' => 'Christina Cho',
+      'userFirstName' => 'Christina',
+      'userLastName' => 'Cho',
+      'userEmail' => "ccho@irco.com",
+      'userPermissions' => null,
+      'companyId' => '47ee0922-5989-4e41-9e99-d23c11fa9f5b',
+      'companyName' => 'Demo IWD Customer',
+      'companyPhoneNumber' => '412-293-1212',
+      'companyContactEmail' => 'dealer@fakeemail.com',
+      'companyAddress' => '370 Interlocken Blvd',
+      'companyCity' => 'Broomfield',
+      'companyState' => 'CO',
+      'companyZip' => '80020',
+      'companyBrand' => 'trane',
+      'companyChannel' => '',
+      'companyLogo' => '',
+      'companyR12AcctNbr' => '000123456789'
+    ),
     'nexiadealer:nexiadealer' => array(
       'GUID' => '51e97951-0cbb-4c85-ae1e-dc5f3460edce',
       'UserID' => 'NexiaDealer',
