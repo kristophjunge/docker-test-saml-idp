@@ -1,5 +1,5 @@
-FROM php:7.1-apache
-MAINTAINER Kristoph Junge <kristoph.junge@gmail.com>
+FROM 417401252731.dkr.ecr.us-east-1.amazonaws.com/firespring-public/docker/library/php:apache
+MAINTAINER Firespring "info.dev@firespring.com"
 
 # Utilities
 RUN apt-get update && \
