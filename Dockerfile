@@ -1,4 +1,4 @@
-FROM 417401252731.dkr.ecr.us-east-1.amazonaws.com/firespring-public/docker/library/php:apache
+FROM 300448126090.dkr.ecr.us-east-1.amazonaws.com/firespring-public/docker/library/php:apache
 MAINTAINER Firespring "info.dev@firespring.com"
 
 # Utilities
