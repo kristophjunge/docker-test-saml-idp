@@ -13,6 +13,7 @@ RUN curl -s -L -o /tmp/simplesamlphp.tar.gz https://github.com/simplesamlphp/sim
     rm -f /tmp/simplesamlphp.tar.gz  && \
     mv /tmp/simplesamlphp-* /var/www/simplesamlphp && \
     touch /var/www/simplesamlphp/modules/exampleauth/enable
+
 COPY config/simplesamlphp/config.php /var/www/simplesamlphp/config
 COPY config/simplesamlphp/authsources.php /var/www/simplesamlphp/config
 COPY config/simplesamlphp/saml20-sp-remote.php /var/www/simplesamlphp/metadata
