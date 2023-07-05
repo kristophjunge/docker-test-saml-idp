@@ -1,4 +1,4 @@
-FROM 300448126090.dkr.ecr.us-east-1.amazonaws.com/firespring-public/docker/library/php:apache
+FROM 300448126090.dkr.ecr.us-east-1.amazonaws.com/firespring-public/docker/library/php-7.4.33:apache
 MAINTAINER Firespring "info.dev@firespring.com"
 
 # Utilities
@@ -7,7 +7,7 @@ RUN apt-get update && \
     rm -r /var/lib/apt/lists/*
 
 # SimpleSAMLphp
-ARG SIMPLESAMLPHP_VERSION=2.0.0
+ARG SIMPLESAMLPHP_VERSION=1.19.7
 RUN curl -s -L -o /tmp/simplesamlphp.tar.gz https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SIMPLESAMLPHP_VERSION/simplesamlphp-$SIMPLESAMLPHP_VERSION.tar.gz && \
     tar xzf /tmp/simplesamlphp.tar.gz -C /tmp && \
     rm -f /tmp/simplesamlphp.tar.gz  && \
