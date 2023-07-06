@@ -1,5 +1,5 @@
-FROM php:7.1-apache
-MAINTAINER Kristoph Junge <kristoph.junge@gmail.com>
+FROM 300448126090.dkr.ecr.us-east-1.amazonaws.com/firespring-public/docker/library/php:7.4.33-apache
+MAINTAINER Firespring "info.dev@firespring.com"
 
 # Utilities
 RUN apt-get update && \
@@ -7,12 +7,13 @@ RUN apt-get update && \
     rm -r /var/lib/apt/lists/*
 
 # SimpleSAMLphp
-ARG SIMPLESAMLPHP_VERSION=1.15.2
+ARG SIMPLESAMLPHP_VERSION=1.19.7
 RUN curl -s -L -o /tmp/simplesamlphp.tar.gz https://github.com/simplesamlphp/simplesamlphp/releases/download/v$SIMPLESAMLPHP_VERSION/simplesamlphp-$SIMPLESAMLPHP_VERSION.tar.gz && \
     tar xzf /tmp/simplesamlphp.tar.gz -C /tmp && \
     rm -f /tmp/simplesamlphp.tar.gz  && \
     mv /tmp/simplesamlphp-* /var/www/simplesamlphp && \
     touch /var/www/simplesamlphp/modules/exampleauth/enable
+
 COPY config/simplesamlphp/config.php /var/www/simplesamlphp/config
 COPY config/simplesamlphp/authsources.php /var/www/simplesamlphp/config
 COPY config/simplesamlphp/saml20-sp-remote.php /var/www/simplesamlphp/metadata
